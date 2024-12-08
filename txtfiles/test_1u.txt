@@ -1,0 +1,1 @@
+Útok na Čeňka je o 15:00!
