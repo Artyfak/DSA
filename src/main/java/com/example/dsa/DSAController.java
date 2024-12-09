@@ -53,6 +53,7 @@ public class DSAController {
     @FXML private TextArea tApubRSA;      // Zobrazuje verejný kľúč v RSA formáte
     @FXML private TextArea tAprivRSA;     // Zobrazuje súkromný kľúč v RSA formáte
     @FXML private TextArea tAsifhash;     // Zobrazuje zašifrovaný hash (podpis)
+    @FXML private TextArea infosub;       // Zobrazuje informácie o súbore (podpis)
     @FXML private Text message;           // Zobrazuje stavové správy pre užívateľa
 
     // Polia pre zobrazenie RSA parametrov
@@ -78,6 +79,7 @@ public class DSAController {
         tApriv.setWrapText(true);
         tABase64.setWrapText(true);
         tAsifhash.setWrapText(true);
+        infosub.setWrapText(true);
     }
 
     /**
@@ -110,6 +112,25 @@ public class DSAController {
         } else {
             filePath.clear();
         }
+        // Získanie informácií o súbore
+        String fileName = selectedFile.getName(); // Názov súboru
+        String filePath = selectedFile.getAbsolutePath(); // Absolútna cesta k súboru
+        String fileExtension = ""; // Typ súboru (prípona)
+        int extensionIndex = fileName.lastIndexOf('.');
+        if (extensionIndex > 0 && extensionIndex < fileName.length() - 1) {
+            fileExtension = fileName.substring(extensionIndex + 1);
+        }
+        long fileSize = selectedFile.length(); // Veľkosť súboru v bajtoch
+        Date lastModified = new Date(selectedFile.lastModified()); // Dátum poslednej úpravy
+
+        // Formátovanie informácií
+        String fileInfo = String.format(
+                "Názov: %s\nCesta: %s\nTyp: %s\nVeľkosť: %d bajtov\nPosledná úprava: %s",
+                fileName, filePath, fileExtension, fileSize, lastModified.toString()
+        );
+
+        // Zobrazenie informácií v textovom poli
+        infosub.setText(fileInfo);
     }
 
     /**
