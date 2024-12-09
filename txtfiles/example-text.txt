@@ -1,0 +1,17 @@
+Celkově je možno získat 10 bodů. 6 je potřeba a bude hodnoceno známkou „Prošel“
+Bodové ohodnocení:
+1. Načtení souboru pro podepsání a zobrazení základních informací (název, cesta, datum
+vytvoření, typ, apod.) - 1 bod
+2. Vygenerování klíčů a podepsání souboru pomocí SHA3-512 a RSA - 2 body
+3. Ověření dokumentu na základě elektronického podpisu - 2 body
+4. Manipulace se soubory s klíčí a el. podpisem (načítání a ukládání souborů s příponami priv,
+.pub a .sign (.zip)) - 2 bodů
+5. GUI (plně interaktivní s tlačítky pro načítání/ukládání souborů, zobrazení potřebných
+informací) - 2 bodů
+6. Umělecký dojem – 1 bod
+Bonusové body za kreativitu.
+Tento úkol odevzdejte 14 dní od zadání na cvičení. (viz podmínky k zápočtu a deadline v
+MOODLE)
+Máte na vypracování čas 14 dní, tj do přespříštího cvičení. Je to tak schválně, abyste během
+příštího cvičení mohli konzultovat s vyučujícím případné problémy, co se týče
+naprogramování úkolu. V případě dotazů se ptejte.

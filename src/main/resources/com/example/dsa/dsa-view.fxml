@@ -4,27 +4,40 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dsa.DSAController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dsa.DSAController">
    <children>
       <Button fx:id="ButtonFile" layoutX="99.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonfile" prefHeight="32.0" prefWidth="124.0" text="Vybrať súbor" />
       <Text layoutX="412.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DSA f_konstiak" />
-      <TextArea fx:id="filePath" layoutX="61.0" layoutY="79.0" prefHeight="32.0" prefWidth="200.0" promptText="FilePath" />
-      <TextArea fx:id="tASHA" layoutX="61.0" layoutY="177.0" prefHeight="200.0" prefWidth="200.0" promptText="hash Base64" />
+      <TextArea fx:id="filePath" editable="false" layoutX="61.0" layoutY="79.0" prefHeight="32.0" prefWidth="200.0" promptText="FilePath" />
+      <TextArea fx:id="tASHA" editable="false" layoutX="61.0" layoutY="177.0" prefHeight="200.0" prefWidth="200.0" promptText="hash SHA3-512" />
       <Button fx:id="ButtonFile1" layoutX="99.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleButtonfile1" prefHeight="32.0" prefWidth="124.0" text="txt to hash" />
       <Button fx:id="ButtonGen" layoutX="383.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleButtongen" prefHeight="32.0" prefWidth="124.0" text="Generate keys" />
-      <TextField fx:id="tfe" layoutX="245.0" layoutY="128.0" prefHeight="25.0" prefWidth="200.0" promptText="e" />
-      <TextField fx:id="tfn" layoutX="295.0" layoutY="171.0" prefHeight="25.0" prefWidth="312.0" promptText="n" />
-      <TextField fx:id="tfd" layoutX="455.0" layoutY="128.0" prefHeight="25.0" prefWidth="200.0" promptText="d" />
+      <TextField fx:id="tfe" editable="false" layoutX="245.0" layoutY="128.0" prefHeight="25.0" prefWidth="200.0" promptText="e" />
+      <TextField fx:id="tfn" editable="false" layoutX="295.0" layoutY="171.0" prefHeight="25.0" prefWidth="312.0" promptText="n" />
+      <TextField fx:id="tfd" editable="false" layoutX="455.0" layoutY="128.0" prefHeight="25.0" prefWidth="200.0" promptText="d" />
       <Text layoutX="324.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verejný exponent" />
       <Text layoutX="480.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Súkromý exponent" />
       <Text layoutX="426.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="n = p * q" />
-      <TextArea fx:id="tApub" layoutX="294.0" layoutY="278.0" prefHeight="17.0" prefWidth="312.0" promptText=".pub" />
+      <TextArea fx:id="tApub" editable="false" layoutX="294.0" layoutY="274.0" prefHeight="45.0" prefWidth="312.0" promptText=".pub" />
       <Text layoutX="398.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verejný kľúč to .pub" />
-      <TextArea fx:id="tApriv" layoutX="294.0" layoutY="339.0" prefHeight="17.0" prefWidth="312.0" promptText=".priv" />
-      <Text layoutX="391.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Súkromný klúč to .priv" />
+      <TextArea fx:id="tApriv" editable="false" layoutX="295.0" layoutY="340.0" prefHeight="45.0" prefWidth="312.0" promptText=".priv" />
+      <Text layoutX="391.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Súkromný klúč to .priv" />
       <Button fx:id="buttonver" layoutX="331.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlepubk" text="načítaj .pub" />
       <Button fx:id="buttonsuk" layoutX="491.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleprivk" text="načítaj .priv" />
+      <TextArea fx:id="tAprivRSA" editable="false" layoutX="295.0" layoutY="457.0" prefHeight="45.0" prefWidth="312.0" promptText="RSA .priv" />
+      <TextArea fx:id="tApubRSA" editable="false" layoutX="294.0" layoutY="397.0" prefHeight="45.0" prefWidth="312.0" promptText="RSA .pub" />
+      <TextArea fx:id="tABase64" editable="false" layoutX="61.0" layoutY="385.0" prefHeight="138.0" prefWidth="200.0" promptText="hash Base64" />
+      <Button fx:id="sifrsa" layoutX="349.0" layoutY="523.0" mnemonicParsing="false" onAction="#handlesifrsa" text="Šifroavanie hash privátným kľúčom" />
+      <TextArea fx:id="tAsifhash" editable="false" layoutX="61.0" layoutY="529.0" prefHeight="138.0" prefWidth="200.0" promptText="šifrovaný hash" />
+      <Button fx:id="tozip" layoutX="291.0" layoutY="598.0" mnemonicParsing="false" onAction="#handletozip" text="Vytvor pdf subor s Dokumentom a zašifrovaným hashom" />
+      <Text fx:id="message" layoutX="293.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="317.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="validate" layoutX="666.0" layoutY="211.0" mnemonicParsing="false" onAction="#handlevalidate" text="Skontroluj To_Validate.zip" />
    </children>
 </AnchorPane>
